@@ -14,7 +14,7 @@ from request_examples import examples
 
 nlp = spacy.load('ru_core_news_sm')
 
-#nltk.download()
+# nltk.download()
 
 # ПОИСК СОВПАДЕНИЙ
 """
@@ -29,7 +29,6 @@ for sentence in examples:
     print(doc.text, matcher(doc))
 """
 
-
 # ВЫВОД ТОКЕНОВ | ЧАСТЬ РЕЧИ | LABEL ЗАВИСИМОСТИ | ЛЕММА | К КАКОМУ СЛОВУ ОТНОСИТСЯ |
 """
 for sentence in examples:
@@ -40,7 +39,6 @@ for sentence in examples:
         print(token.text, token.pos_, token.dep_, token.lemma_, token.head.text, sep=" | ")
     print("")
 """
-
 
 # СОЗДАНИЕ СВОЕГО TIMELINE ПО ПОИСКУ ЕДЫ, ПРИ ВЫЗОВЕ DOC
 """
@@ -93,9 +91,12 @@ for sentence in examples:
 
 # ПОИСК СОВПАДЕНИЙ ИЗ ИМЕЮЩЕГОСЯ МЕНЮ
 # преобразование меню в формат [{'LOWER': 'TOKEN'}, ...]
-pizzas: list[tuple[str, list[str]]] = [(pizza.name, list(pizza.tokens)) for pizza in menu if pizza.food_type == FoodType.PIZZA]
-snacks: list[tuple[str, list[str]]] = [(snack.name, list(snack.tokens)) for snack in menu if snack.food_type == FoodType.SNACK]
-drinks: list[tuple[str, list[str]]] = [(drink.name, list(drink.tokens)) for drink in menu if drink.food_type == FoodType.DRINK]
+pizzas: list[tuple[str, list[str]]] = [(pizza.name, list(pizza.tokens)) for pizza in menu if
+                                       pizza.food_type == FoodType.PIZZA]
+snacks: list[tuple[str, list[str]]] = [(snack.name, list(snack.tokens)) for snack in menu if
+                                       snack.food_type == FoodType.SNACK]
+drinks: list[tuple[str, list[str]]] = [(drink.name, list(drink.tokens)) for drink in menu if
+                                       drink.food_type == FoodType.DRINK]
 
 pizza_names, snack_names, drink_names = [], [], []
 lists = [pizza_names, snack_names, drink_names]
@@ -112,7 +113,7 @@ for list_ in [pizza_names, snack_names, drink_names]:
     for name, pattern in list_:
         matcher.add(name, [pattern])
 
-
+# поиск совпадений и вывод их в командную строку
 for sentence in examples:
     doc = nlp(sentence)
     print(doc.text)
