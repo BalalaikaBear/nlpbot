@@ -1,6 +1,6 @@
 from menu import menu, Ingredients
 from objects import Ingredient, Pizza, Snack, Drink, Product, Size, OrderItem, Order
-from requests import requests as texts
+from request_examples import examples as texts
 from colorama import Fore
 
 verbs: dict[str, set[str]] = {
