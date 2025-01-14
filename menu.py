@@ -173,7 +173,6 @@ menu: set[Product] = {
           price=85),
 }
 
-
 if __name__ == '__main__':
     print(Ingredients.MOZZARELLA.name, ' 1 ', Ingredients.MOZZARELLA.price)
     for item in menu:

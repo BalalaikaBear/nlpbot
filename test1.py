@@ -155,6 +155,7 @@ def delete_left_attributes(tokens: list[str],
 
     return deleted_ingredients
 
+
 def read_order(tokens: list[str], order: Order | None = None) -> tuple[Order, str]:
     """Определение заказа, и выдача комментария по этому поводу"""
     if order is None:
